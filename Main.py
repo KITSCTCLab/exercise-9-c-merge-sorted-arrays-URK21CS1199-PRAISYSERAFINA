@@ -30,7 +30,7 @@ def merge_sort(myList) -> None:
               # The value from the left half has been used
               myList[k] = left[i]
               # Move the iterator forward
-              i += 
+              i += 1
             else:
                 myList[k] = right[j]
                 j += 1
