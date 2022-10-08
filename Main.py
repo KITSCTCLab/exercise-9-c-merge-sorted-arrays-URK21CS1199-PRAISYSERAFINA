@@ -1,8 +1,8 @@
 from typing import List
 
 def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-  # Write code here
-   x = nums1[0:m]
+ 
+  x = nums1[0:m]
   y = nums2[0:n]
   nums1=x+y
   nums1 = merge_sort(nums1)
