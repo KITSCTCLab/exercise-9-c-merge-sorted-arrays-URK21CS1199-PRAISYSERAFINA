@@ -1,54 +1,33 @@
 from typing import List
+
 def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
- 
-  x = nums1[0:m]
-  y = nums2[0:n]
-  nums1=x+y
-  nums1 = merge_sort(nums1)
-  return nums1
-  
-def merge_sort(myList) -> None:
-  if len(myList) > 1:
-        mid = len(myList) // 2
-        left = myList[:mid]
-        right = myList[mid:]
+  #Function implementing merging of two sorted arrays
+  #Input: nums1 -> array
+  #       m -> number of elements of nums1
+  #       nums2 -> array
+  #       n -> number of elements of nums2
+  l1 = nums1[:]
+  l2 = nums2[:]
+  curr, i, j = 0, 0, 0
+  while i < m and j < n:
+    if l1[i] < l2[j]:
+      nums1[curr] = l1[i]
+      i += 1
+    else:
+      nums1[curr] = l2[j]
+      j += 1
+    curr += 1
+  while i < m:
+    nums1[curr] = l1[i]
+    curr += 1
+    i += 1
+  while j < n:
+    nums1[curr] = l2[j]
+    curr += 1
+    j += 1
 
-        # Recursive call on each half
-        merge_sort(left)
-        merge_sort(right)
 
-        # Two iterators for traversing the two halves
-        i = 0
-        j = 0
-        
-        # Iterator for the main list
-        k = 0
-        
-        while i < len(left) and j < len(right):
-            if left[i] <= right[j]:
-              # The value from the left half has been used
-              myList[k] = left[i]
-              # Move the iterator forward
-              i += 1
-            else:
-                myList[k] = right[j]
-                j += 1
-            # Move to the next slot
-            k += 1
-
-        # For all the remaining values
-        while i < len(left):
-            myList[k] = left[i]
-            i += 1
-            k += 1
-
-        while j < len(right):
-            myList[k]=right[j]
-            j += 1
-            k += 1
-  return myList
-
-# Do not change the following code
+# Do noT change the following code
 nums1 = []
 nums2 = []
 for item in input().split(', '):
