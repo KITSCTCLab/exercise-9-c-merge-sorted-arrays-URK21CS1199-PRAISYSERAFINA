@@ -6,7 +6,7 @@ def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
   nums1=x+y
   nums1 = merge_sort(nums1)
   return nums1
- 
+  
 def merge_sort(myList) -> None:
   if len(myList) > 1:
         mid = len(myList) // 2
@@ -20,10 +20,10 @@ def merge_sort(myList) -> None:
         # Two iterators for traversing the two halves
         i = 0
         j = 0
-       
+        
         # Iterator for the main list
         k = 0
-       
+        
         while i < len(left) and j < len(right):
             if left[i] <= right[j]:
               # The value from the left half has been used
